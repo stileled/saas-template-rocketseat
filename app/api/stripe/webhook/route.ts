@@ -1,4 +1,4 @@
-import stripe from "@/app/lib/stripe";
+import { stripe } from "@/app/lib/stripe";
 import { handleStripePayment } from "@/app/server/stripe/handle-payment";
 import { handleStripeSubscription } from "@/app/server/stripe/handle-subscription";
 import { handleStripeSubscriptionCancellation } from "@/app/server/stripe/handle-subscription-cancellation";

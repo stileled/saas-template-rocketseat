@@ -1,5 +1,5 @@
 import { auth } from "@/app/lib/auth";
-import stripe from "@/app/lib/stripe";
+import { stripe } from "@/app/lib/stripe";
 import { getOrCreateCustomer } from "@/app/server/stripe/get-or-create-customer";
 import { NextRequest, NextResponse } from "next/server";
 
