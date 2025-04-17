@@ -1,6 +1,5 @@
 import { auth } from "@/app/lib/auth";
 import { stripe } from "@/app/lib/stripe";
-import { getOrCreateCustomer } from "@/app/server/stripe/get-or-create-customer";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(request: NextRequest) {
@@ -21,8 +20,6 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  const customerId = await getOrCreateCustomer(userId, userEmail);
-
   const metadata = {
     testId,
     price,
@@ -41,7 +38,6 @@ export async function POST(request: NextRequest) {
       ...(userEmail && {
         customer_email: userEmail,
       }),
-      customer: customerId,
       metadata,
     });
 
